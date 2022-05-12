@@ -1,9 +1,9 @@
 import { configureStore, ThunkAction, Action } from '@reduxjs/toolkit';
-import counterReducer from '../features/counter/counterSlice';
+import memSlice from '../store/memSlice';
 
 export const store = configureStore({
   reducer: {
-    counter: counterReducer,
+    mems: memSlice,
   },
 });
 
