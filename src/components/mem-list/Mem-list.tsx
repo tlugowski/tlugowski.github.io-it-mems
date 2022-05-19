@@ -1,12 +1,12 @@
 import React from "react";
 import { MemListProps } from "./Mem-list.d";
 import { Mems } from "./../../data/mems.d";
-import { useSelector } from "react-redux";
 import { selectMemesByType } from "./../../store/memSlice";
 import Mem from "./../mem/Mem";
+import { useAppSelector } from "../../app/hooks";
 
 const MemList: React.FC<MemListProps> = ({ type }) => {
-  const mems: Mems = useSelector(selectMemesByType(type));
+  const mems: Mems = useAppSelector(selectMemesByType(type));
 
   return (
     <>

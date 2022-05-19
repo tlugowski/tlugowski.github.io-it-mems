@@ -2,4 +2,4 @@ export interface MemListProps {
   type: MemTypes;
 }
 
-export type MemTypes = "hot" | "regular";
+export type MemTypes = "hot" | "regular" | "favourites";

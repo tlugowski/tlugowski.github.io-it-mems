@@ -1,3 +1,4 @@
+import React from "react";
 import MemList from "../../components/mem-list/Mem-list";
 
 const Hot = () => {

@@ -1,9 +1,11 @@
-import { configureStore, ThunkAction, Action } from '@reduxjs/toolkit';
-import memSlice from '../store/memSlice';
+import { configureStore, ThunkAction, Action } from "@reduxjs/toolkit";
+import memSlice from "../store/memSlice";
+import userSlice from "../store/userSlice";
 
 export const store = configureStore({
   reducer: {
     mems: memSlice,
+    user: userSlice,
   },
 });
 

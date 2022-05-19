@@ -11,6 +11,11 @@ import { MainSider } from "./Main.components";
 
 const menuElements: ItemType[] = [
   {
+    key: "favourites",
+    label: "Favourites",
+    icon: <RiseOutlined />,
+  },
+  {
     key: "hot",
     label: "Hot",
     icon: <RiseOutlined />,
@@ -20,12 +25,17 @@ const menuElements: ItemType[] = [
     label: "Regular",
     icon: <LineChartOutlined />,
   },
+  {
+    key: 'add-mem',
+    label: 'Add mem',
+    icon: <LineChartOutlined />
+  }
+
 ];
 
 const { Header, Content } = Layout;
 
 const Main: React.FC = () => {
-
   const navigate = useNavigate();
 
   const onMenuChange: SelectEventHandler = (info) => {
