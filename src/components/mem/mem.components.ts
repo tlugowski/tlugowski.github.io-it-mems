@@ -4,7 +4,12 @@ import { Card as AntCard, Button } from "antd";
 export const ContainerMem = styled.div`
   width: 100%;
   margin: 50px;
+  background-image: url("  https://static.wixstatic.com/media/10b930_a55b0e35ff6f445697bde8f1ea6813c4~mv2.jpg/v1/fill/w_1000,h_563,al_c,q_90,usm_0.66_1.00_0.01/10b930_a55b0e35ff6f445697bde8f1ea6813c4~mv2.jpg");
 
+  background-size: 100vw 100vh;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: cover;
   /* @media only screen and (min-device-width: 400px) {
   body {
     background-image: url('img_flowers.jpg');
