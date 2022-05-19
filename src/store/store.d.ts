@@ -1,3 +1,5 @@
+import { workers } from "cluster";
+
 export type ChangeMemActionType = "up-mem" | "down-mem";
 
 export interface ChangeMemPayload {
@@ -5,8 +7,7 @@ export interface ChangeMemPayload {
   id: number;
 }
 
-
 export interface User {
-    nick: string,
-    favouritesMemesIds: number[]
+  nick: string;
+  favouritesMemesIds: number[];
 }

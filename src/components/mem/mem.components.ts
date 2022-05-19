@@ -16,6 +16,7 @@ export const Card = styled(AntCard)`
   margin: auto;
   width: 80%;
   max-width: 700px;
+  border: 25px solid #40a9ff;
 `;
 
 export const VoteContainer = styled.div`
@@ -30,6 +31,30 @@ export const VoteButton = styled(Button)`
 export const RateContainer = styled.div`
   display: flex;
   justify-content: center;
+  padding-bottom: 25px;
+`;
+
+export const PositiveButton = styled.span`
+  & button {
+    background-color: green;
+  }
+`;
+
+export const NegativeButton = styled.span`
+  & button {
+    background-color: red;
+  }
+`;
+
+export const IsFavouriteWrapper = styled.div`
+  display: flex;
+  justify-content: right;
+  padding-bottom: 5px;
+`;
+export const FavouriteButtonWrapper = styled.div`
+  display: flex;
+  justify-content: right;
+  padding-bottom: 25px;
 `;
 
 // @media screen and (min-device-width: 400px) {

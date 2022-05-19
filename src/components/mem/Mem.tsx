@@ -1,27 +1,27 @@
 import { MemProps } from "./Mem.d";
 import { useMemo } from "react";
+import { Button } from "antd";
 import {
   ContainerMem,
   Card,
   VoteContainer,
   VoteButton,
   RateContainer,
+  PositiveButton,
+  NegativeButton,
+  IsFavouriteWrapper,
+  FavouriteButtonWrapper,
 } from "./mem.components";
 import { changeVoute } from "../../store/memSlice";
 import { Rate } from "antd";
 import { useAppDispatch, useAppSelector } from "../../app/hooks";
-import { addToFavourites, isMemFavourite, removeFromFavourites } from "../../store/userSlice";
-// import { FrownOutlined, MehOutlined, SmileOutlined } from "@ant-design/icons";
+import {
+  addToFavourites,
+  isMemFavourite,
+  removeFromFavourites,
+} from "../../store/userSlice";
 
 const { Meta } = Card;
-
-// const customIcons = {
-//   1: <FrownOutlined />,
-//   2: <FrownOutlined />,
-//   3: <MehOutlined />,
-//   4: <SmileOutlined />,
-//   5: <SmileOutlined />,
-// };
 
 const Mem: React.FC<MemProps> = ({ mem }) => {
   const dispatch = useAppDispatch();
@@ -55,11 +55,14 @@ const Mem: React.FC<MemProps> = ({ mem }) => {
   const rate = useMemo(() => (mem.upvotes / mem.downvotes) * 2.5, [mem]);
 
   const toggleFavouriteMem = () => {
-    isFavourite ? dispatch(removeFromFavourites(mem.id)) : dispatch(addToFavourites(mem.id)) 
-  }
+    isFavourite
+      ? dispatch(removeFromFavourites(mem.id))
+      : dispatch(addToFavourites(mem.id));
+  };
   return (
     <ContainerMem>
       <Card
+        className="gradient-border"
         cover={
           <img
             alt={mem.title}
@@ -69,14 +72,26 @@ const Mem: React.FC<MemProps> = ({ mem }) => {
       >
         <Meta title={mem.title} description={mem.description} />
         <VoteContainer>
-          <VoteButton onClick={addPositiveVoute}> {mem.upvotes} + </VoteButton>
-          <VoteButton onClick={addNegativeVoute}>{mem.downvotes} - </VoteButton>
+          <PositiveButton>
+            <VoteButton onClick={addPositiveVoute}>{mem.upvotes} 👍🏻</VoteButton>
+          </PositiveButton>
+          <NegativeButton>
+            <VoteButton onClick={addNegativeVoute}>
+              {mem.downvotes} 👎🏻
+            </VoteButton>
+          </NegativeButton>
         </VoteContainer>
         <RateContainer>
           <Rate disabled value={rate} />
         </RateContainer>
-        isFavourite - {isFavourite ? "Tak" : "Nie"}
-        <button onClick={toggleFavouriteMem}>{isFavourite ? "Usuń z ulubionych" : "Dodaj do ulubionych"}</button>
+        <IsFavouriteWrapper>
+          Is favourite? {isFavourite ? "✅" : "⛔"}
+        </IsFavouriteWrapper>
+        <FavouriteButtonWrapper>
+          <Button type="primary" onClick={toggleFavouriteMem}>
+            {isFavourite ? "💔 Delete from favourite" : "❤️ Add to favourite"}
+          </Button>
+        </FavouriteButtonWrapper>
       </Card>
     </ContainerMem>
   );

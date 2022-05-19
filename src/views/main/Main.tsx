@@ -4,7 +4,12 @@ import "antd/dist/antd.css";
 
 import { Container } from "./Main.components";
 import { Layout, Menu } from "antd";
-import { LineChartOutlined, RiseOutlined } from "@ant-design/icons";
+import {
+  LineChartOutlined,
+  RiseOutlined,
+  PlusCircleOutlined,
+  HeartOutlined,
+} from "@ant-design/icons";
 import { ItemType } from "antd/lib/menu/hooks/useItems";
 import { Outlet, useNavigate } from "react-router-dom";
 import { MainSider } from "./Main.components";
@@ -13,7 +18,7 @@ const menuElements: ItemType[] = [
   {
     key: "favourites",
     label: "Favourites",
-    icon: <RiseOutlined />,
+    icon: <HeartOutlined />,
   },
   {
     key: "hot",
@@ -26,11 +31,10 @@ const menuElements: ItemType[] = [
     icon: <LineChartOutlined />,
   },
   {
-    key: 'add-mem',
-    label: 'Add mem',
-    icon: <LineChartOutlined />
-  }
-
+    key: "add-mem",
+    label: "Add mem",
+    icon: <PlusCircleOutlined />,
+  },
 ];
 
 const { Header, Content } = Layout;
