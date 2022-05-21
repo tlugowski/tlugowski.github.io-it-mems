@@ -1,7 +1,8 @@
 import React from "react";
+import Home from "../home/Home";
 
 const AppInfoView: React.FC = () => {
-  return <>Welcome to our Mem's Page</>;
+  return <Home />;
 };
 
 export default AppInfoView;

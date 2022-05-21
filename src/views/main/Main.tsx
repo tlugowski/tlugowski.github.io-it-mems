@@ -32,7 +32,7 @@ const menuElements: ItemType[] = [
   },
   {
     key: "add-mem",
-    label: "Add mem",
+    label: "Add mems",
     icon: <PlusCircleOutlined />,
   },
 ];
