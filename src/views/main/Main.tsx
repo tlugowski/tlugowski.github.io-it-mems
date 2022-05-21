@@ -42,6 +42,11 @@ const { Header, Content } = Layout;
 const Main: React.FC = () => {
   const navigate = useNavigate();
 
+  const routeChange = () => {
+    const path = `home`;
+    navigate(path);
+  };
+
   const onMenuChange: SelectEventHandler = (info) => {
     const routeName: string = info.key;
     navigate(`/${routeName}`);
@@ -51,7 +56,7 @@ const Main: React.FC = () => {
     <Layout>
       <Container>
         <Header>
-          <div className="logo" />
+          <button className="logo" onClick={routeChange} />
         </Header>
       </Container>
       <Layout>

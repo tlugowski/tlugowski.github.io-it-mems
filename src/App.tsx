@@ -15,6 +15,7 @@ import AppInfoView from "./views/app-info/app-info";
 import "./App.css";
 import AddMemFormView from "./views/addMemForm/addMemForm";
 import NotFound from "./views/notFound/NotFound";
+import Home from "./views/home/Home";
 
 function App() {
   return (
@@ -25,6 +26,7 @@ function App() {
         <Route path="hot" element={<HotView />} />
         <Route path="favourites" element={<FavouritesView />} />
         <Route path="add-mem" element={<AddMemFormView />} />
+        <Route path="home" element={<Home/>} />
         <Route path="*" element={<NotFound />} />
       </Route>
     </Routes>
