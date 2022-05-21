@@ -1,11 +1,22 @@
 import React, {
   ChangeEventHandler,
-  FormEventHandler,
+  MouseEventHandler,
   useEffect,
   useState,
 } from "react";
 import { useAppDispatch } from "../../app/hooks";
 import { addMem } from "../../store/memSlice";
+import {
+  CardAddMem,
+  FormAddMem,
+  HeaderWrapper,
+  InputWrapper,
+  LabelWrapper,
+  NotificationWrapper,
+  SectionWrapper,
+  SendButton,
+  SendContainer,
+} from "../../views/addMemForm/addMemForm.components";
 import { NewMem } from "./memForm.d";
 
 const MemForm: React.FC = () => {
@@ -17,7 +28,7 @@ const MemForm: React.FC = () => {
   });
 
   const [isSuccessful, setIsSuccessful] = useState<boolean>(false);
-  const onSubmit: FormEventHandler<HTMLFormElement> = (e) => {
+  const onSubmit: MouseEventHandler<HTMLElement> = (e) => {
     e.preventDefault();
     dispatch(addMem(mem));
     setIsSuccessful(true);
@@ -38,7 +49,7 @@ const MemForm: React.FC = () => {
 
     const timer = setTimeout(() => {
       setIsSuccessful(false);
-    }, 5000);
+    }, 3000);
 
     return () => {
       clearTimeout(timer);
@@ -46,33 +57,48 @@ const MemForm: React.FC = () => {
   }, [isSuccessful]);
 
   return (
-    <form action="" onSubmit={onSubmit}>
-      <div>
-        <label>Mem's name</label>
-        <input type="text" name="title" value={mem.title} onChange={onChange} />
-      </div>
-      <div>
-        <label>Mem's description:</label>
-        <input
-          type="text"
-          name="description"
-          value={mem.description}
-          onChange={onChange}
-        />
-      </div>
-      <div>
-        <label>Add mem link:</label>
-        <input
-          type="text"
-          value={mem.img}
-          onChange={onChange}
-          name="img"
-          // pattern="/^((ftp|http|https):\/\/)?(www.)?(?!.*(ftp|http|https|www.))[a-zA-Z0-9_-]+(\.[a-zA-Z]+)+((\/)[\w#]+)*(\/\w+\?[a-zA-Z0-9_]+=\w+(&[a-zA-Z0-9_]+=\w+)*)?$/gm"
-        />
-      </div>
-      {isSuccessful && <span>Pomysle wstawiono mema</span>}
-      <button type="submit">Wyslij</button>
-    </form>
+    <CardAddMem>
+      <FormAddMem>
+        <HeaderWrapper>Add your mems</HeaderWrapper>
+        <SectionWrapper>
+          <LabelWrapper>Mem's name: </LabelWrapper>
+          <InputWrapper
+            type="text"
+            name="title"
+            value={mem.title}
+            onChange={onChange}
+          />
+        </SectionWrapper>
+        <SectionWrapper>
+          <LabelWrapper>Mem's author:</LabelWrapper>
+          <InputWrapper
+            type="text"
+            name="description"
+            value={mem.description}
+            onChange={onChange}
+          />
+        </SectionWrapper>
+        <SectionWrapper>
+          <LabelWrapper>Add mem link:</LabelWrapper>
+          <InputWrapper
+            type="text"
+            value={mem.img}
+            onChange={onChange}
+            name="img"
+          />
+        </SectionWrapper>
+        {isSuccessful && (
+          <NotificationWrapper>
+            Mem's has been added correctly!
+          </NotificationWrapper>
+        )}
+        <SendContainer>
+          <SendButton type="primary" onClick={onSubmit}>
+            Send
+          </SendButton>
+        </SendContainer>
+      </FormAddMem>
+    </CardAddMem>
   );
 };
 

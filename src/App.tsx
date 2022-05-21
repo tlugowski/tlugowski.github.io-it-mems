@@ -14,6 +14,7 @@ import AppInfoView from "./views/app-info/app-info";
 // CSS
 import "./App.css";
 import AddMemFormView from "./views/addMemForm/addMemForm";
+import NotFound from "./views/notFound/NotFound";
 
 function App() {
   return (
@@ -24,7 +25,7 @@ function App() {
         <Route path="hot" element={<HotView />} />
         <Route path="favourites" element={<FavouritesView />} />
         <Route path="add-mem" element={<AddMemFormView />} />
-        {/* <Route path="*" element={<NoMatch />} /> // 404 */}
+        <Route path="*" element={<NotFound />} />
       </Route>
     </Routes>
   );
