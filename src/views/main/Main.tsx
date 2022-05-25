@@ -2,7 +2,7 @@ import React from "react";
 import { SelectEventHandler } from "rc-menu/lib/interface";
 import "antd/dist/antd.css";
 
-import { Container } from "./Main.components";
+import { LogoWrapper } from "./Main.components";
 import { Layout, Menu } from "antd";
 import {
   LineChartOutlined,
@@ -42,11 +42,6 @@ const { Header, Content } = Layout;
 const Main: React.FC = () => {
   const navigate = useNavigate();
 
-  const routeChange = () => {
-    const path = `home`;
-    navigate(path);
-  };
-
   const onMenuChange: SelectEventHandler = (info) => {
     const routeName: string = info.key;
     navigate(`/${routeName}`);
@@ -54,11 +49,11 @@ const Main: React.FC = () => {
 
   return (
     <Layout>
-      <Container>
-        <Header>
-          <button className="logo" onClick={routeChange} />
-        </Header>
-      </Container>
+      <Header>
+        <LogoWrapper className="logo" to="/home">
+          IT ME👀MS
+        </LogoWrapper>
+      </Header>
       <Layout>
         <MainSider>
           <Menu onSelect={onMenuChange} mode="inline" items={menuElements} />
