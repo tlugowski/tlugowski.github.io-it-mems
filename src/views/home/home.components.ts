@@ -13,7 +13,7 @@ export const AboutContainer = styled.div`
 `;
 
 export const AboutTitleWrapper = styled.h1`
-  margin-top: 24px;
+  margin-top: 100px;
   font-weight: 400px;
 `;
 
@@ -36,6 +36,7 @@ export const HomeContainer = styled.div`
     justify-content: center;
     position: relative;
     height: 100%;
+    margin-top: 224px;
   }
 
   .about-right {

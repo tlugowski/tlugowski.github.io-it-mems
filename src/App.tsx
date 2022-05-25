@@ -26,7 +26,7 @@ function App() {
         <Route path="hot" element={<HotView />} />
         <Route path="favourites" element={<FavouritesView />} />
         <Route path="add-mem" element={<AddMemFormView />} />
-        <Route path="home" element={<Home/>} />
+        <Route path="home" element={<Home />} />
         <Route path="*" element={<NotFound />} />
       </Route>
     </Routes>

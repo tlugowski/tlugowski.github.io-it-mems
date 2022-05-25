@@ -56,6 +56,7 @@ const MemForm: React.FC = () => {
     };
   }, [isSuccessful]);
 
+
   return (
     <CardAddMem>
       <FormAddMem>
