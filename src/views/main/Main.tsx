@@ -1,4 +1,4 @@
-import React, { useCallback, useEffect, useState } from "react";
+import React, { useMemo } from "react";
 import { SelectEventHandler } from "rc-menu/lib/interface";
 import "antd/dist/antd.css";
 
@@ -42,17 +42,10 @@ const menuElements: ItemType[] = [
 const { Header, Content } = Layout;
 
 const Main: React.FC = () => {
-  const [isCollapsed, setIsCollapsed] = useState<boolean>(false);
-  const { height, width } = useWindowDimensions();
+  const { width } = useWindowDimensions();
   const navigate = useNavigate();
 
-  useEffect(() => {
-    return () => {
-      width <= 1000
-        ? setIsCollapsed(!isCollapsed)
-        : setIsCollapsed(isCollapsed);
-    };
-  }, [width]);
+  const isCollapsed = useMemo<boolean>(() => width <= 768, [width]);
 
   const onMenuChange: SelectEventHandler = (info) => {
     const routeName: string = info.key;
@@ -61,26 +54,23 @@ const Main: React.FC = () => {
 
   return (
     <Layout>
-      <Header>
+      <CustomHeader>
         <LogoWrapper className="logo" to="/home">
           IT ME👀MS
         </LogoWrapper>
-      </Header>
-      <div>
-        width: {width} ~ height: {height}
-      </div>
+      </CustomHeader>
       <Layout>
-        <MainSider collapsed={isCollapsed}>
+        <SiderWrapper collapsed={isCollapsed}>
           <MenuWrapper
             onSelect={onMenuChange}
             mode="inline"
             items={menuElements}
           />
-        </MainSider>
+        </SiderWrapper>
         <Layout>
-          <Content>
+          <CustomContent>
             <Outlet />
-          </Content>
+          </CustomContent>
         </Layout>
       </Layout>
     </Layout>
@@ -88,7 +78,6 @@ const Main: React.FC = () => {
 };
 
 const MenuWrapper = styled(Menu)`
-  position: fixed;
   width: 200px;
 
   @media (max-width: 768px) {
@@ -96,6 +85,28 @@ const MenuWrapper = styled(Menu)`
       width: 78px;
     }
   }
+`;
+
+const CustomContent = styled(Content)`
+  width: calc(100vw - 200px);
+  margin-left: 200px;
+
+  @media (max-width: 768px) {
+    width: calc(100vw - 78px);
+    margin-left: 78px;
+  }
+`;
+
+const SiderWrapper = styled(MainSider)`
+  position: fixed;
+  margin-top: 64px;
+  height: calc(100vh - 64px);
+`;
+
+const CustomHeader = styled(Header)`
+  z-index: 1;
+  position: fixed;
+  width: 100%;
 `;
 
 export default Main;

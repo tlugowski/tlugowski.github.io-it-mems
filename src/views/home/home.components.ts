@@ -21,13 +21,17 @@ export const HomeContainer = styled.div`
   position: flex;
   align-items: center;
   justify-content: center;
-  width: calc(100vw - (2 * 155px));
+  width: calc(100% - (2 * 80px));
   height: calc(100vh - (2 * 100px));
-  margin: 50px;
+  margin: 100px auto 0 auto;
   background-image: url("https://wallup.net/wp-content/uploads/2016/07/20/26560-Beaker.jpg");
   background-size: calc(100vw - (2 * 35px)) calc(100vh - (2 * 25px));
   background-repeat: no-repeat;
   background-attachment: fixed;
+
+  @media (max-width: 768px) {
+    width: calc(100% - (2 * 40px));
+  }
 
   .about-left {
     flex: 1;

@@ -18,6 +18,7 @@ import {
   SendContainer,
 } from "../../views/addMemForm/addMemForm.components";
 import { NewMem } from "./memForm.d";
+import { validateForm } from "./memForm.helpers";
 
 const MemForm: React.FC = () => {
   const dispatch = useAppDispatch();
@@ -26,10 +27,19 @@ const MemForm: React.FC = () => {
     description: "",
     img: "",
   });
+  const [error, setError] = useState<string>("");
 
   const [isSuccessful, setIsSuccessful] = useState<boolean>(false);
+
   const onSubmit: MouseEventHandler<HTMLElement> = (e) => {
     e.preventDefault();
+    const [isValid, validationError] = validateForm(mem);
+
+    setError(validationError);
+    if (!isValid) {
+      return;
+    }
+
     dispatch(addMem(mem));
     setIsSuccessful(true);
   };
@@ -56,7 +66,6 @@ const MemForm: React.FC = () => {
     };
   }, [isSuccessful]);
 
-
   return (
     <CardAddMem>
       <FormAddMem>
@@ -71,7 +80,7 @@ const MemForm: React.FC = () => {
           />
         </SectionWrapper>
         <SectionWrapper>
-          <LabelWrapper>Mem's author:</LabelWrapper>
+          <LabelWrapper>Mem's description:</LabelWrapper>
           <InputWrapper
             type="text"
             name="description"
@@ -93,6 +102,7 @@ const MemForm: React.FC = () => {
             Mem's has been added correctly!
           </NotificationWrapper>
         )}
+        {error !== "" && <NotificationWrapper>{error}</NotificationWrapper>}
         <SendContainer>
           <SendButton type="primary" onClick={onSubmit}>
             Send

@@ -13,19 +13,26 @@ export const ContainerAddMem = styled.div`
   background-size: cover;
 `;
 
-export const SectionWrapper = styled.div``;
+export const SectionWrapper = styled.div`
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+`;
 
 export const LabelWrapper = styled.label`
-  width: 350px;
+  max-width: 550px;
+  width: 90%;
   font-size: 20px;
+  margin: 0 10px;
   color: white;
 `;
 
 export const InputWrapper = styled(Input)`
-  margin-bottom: 25px;
-  margin-left: 25px;
-  margin-right: 25px;
-  width: 325px;
+  margin: 10px;
+  width: 90%;
+  max-width: 525px;
 `;
 
 export const HeaderWrapper = styled.div`
@@ -53,7 +60,6 @@ export const FormAddMem = styled(Form)`
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  margin: 10px;
 `;
 
 export const CardAddMem = styled(AntCard)`
@@ -73,6 +79,7 @@ export const SendContainer = styled.div`
 
 export const SendButton = styled(Button)`
   width: 25%;
+  min-width: 100px;
 `;
 
 // @media screen and (min-device-width: 400px) {
