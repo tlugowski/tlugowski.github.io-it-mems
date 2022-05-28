@@ -73,25 +73,25 @@ With the Add to favourite button you can add a meme to the favourites section. W
 
 ### Regular
 
-![RegularPage](./pictures/RegularPage.gif)
+![RegularPage](./src/images/RegularPage.gif)
 
 Regular section displays all default memes
 
 ### Hot
 
-![HotPage](./pictures/HotPage.gif)
+![HotPage](./src/images/HotPage.gif)
 
 The Hot section displays all the memes that have been previously added from another section with +5 thumbs up
 
 ### Add mems
 
-![AddMemsPage](./pictures/AddMemsPage.gif)
+![AddMemsPage](./src/images/AddMemsPage.gif)
 
 The Add mems section allows you to add a meme by using a link to the image. It has 3 required fields - the minimum number of characters that must be entered is 5. In case of a smaller number of characters a warning message appears. When the meme is added correctly, a success message appears and the added picture appears in the regular section
 
 ### Not Found Page
 
-![NotFoundPage](./pictures/NotFoundPage.gif)
+![NotFoundPage](./src/images/NotFoundPage.gif)
 
 In case you enter an address that is not one of the root ones - a served 404 error page will appear
 
@@ -106,17 +106,17 @@ The project is separated into a separate folder:
 - images - images and gifs of the project
 - store - files connected with Redux
 - views - components related to displaying individual pages
-  ![foldersStructure](./pictures/foldersStructure.PNG)
+  ![foldersStructure](./src/images/foldersStructure.PNG)
 
 Split folders by style:
 Components have their own twin file with 'components.ts' containing the component's styles and being exported at the same level as the file that uses it
-![stylesFolderStructure](./pictures/stylesFolderStructure.PNG)
+![stylesFolderStructure](./src/images/stylesFolderStructure.PNG)
 
 ## Database
 
 The database is located in the `mems.ts` file
 by a file in json format and controlled by types and interfaces
-![jsonTypes](./pictures/ jsonTypes.PNG)
+![jsonTypes](./src/images/jsonTypes.PNG)
 
 ## Technologies
 
