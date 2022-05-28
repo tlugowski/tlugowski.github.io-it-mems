@@ -1,7 +1,7 @@
 {
   "name": "mem-app",
   "version": "0.1.0",
-  "homepage": "https://tlugowski.github.io-it-mems",
+  "homepage": "https://tlugowski.github.io-it-mems/",
   "private": true,
   "dependencies": {
     "@ant-design/icons": "^4.7.0",
