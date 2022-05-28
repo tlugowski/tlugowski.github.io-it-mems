@@ -1,23 +1,26 @@
 import styled from "styled-components";
 import { Card as AntCard, Button, Input, Form } from "antd";
+
+export const JustifyCenter = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+`;
+
 export const ContainerAddMem = styled.div`
   width: calc(100% - (2 * 50px));
   height: calc(100vh - (2 * 75px));
   margin: 50px;
   padding: 50px;
   background-image: url("https://i.pinimg.com/originals/75/e1/1d/75e11d51f947cfb8cec96488c599cfc0.png");
-
   background-size: 100vw 100vh;
   background-repeat: no-repeat;
   background-attachment: fixed;
   background-size: cover;
 `;
 
-export const SectionWrapper = styled.div`
+export const SectionWrapper = styled(JustifyCenter)`
   width: 100%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
   flex-direction: column;
 `;
 
@@ -35,11 +38,8 @@ export const InputWrapper = styled(Input)`
   max-width: 525px;
 `;
 
-export const HeaderWrapper = styled.div`
+export const HeaderWrapper = styled(JustifyCenter)`
   font-size: 48px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
   font-family: Helvetica, Arial, Sans-Serif;
   color: white;
   padding-bottom: 25px;
@@ -81,9 +81,3 @@ export const SendButton = styled(Button)`
   width: 25%;
   min-width: 100px;
 `;
-
-// @media screen and (min-device-width: 400px) {
-//     body {
-//       background-image: url('img_flowers.jpg');
-//     }
-//   }

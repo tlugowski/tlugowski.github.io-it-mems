@@ -2,13 +2,13 @@ import { NewMem } from "./memForm.d";
 
 export const validateForm = (formData: NewMem): [boolean, string] => {
   if (formData.title.length <= 5) {
-    return [false, "Tytuł memea musi byc dluzszy niz 5 znaków"];
+    return [false, "Mem's title must be longer than 5 characters"];
   }
   if (formData.description.length <= 15) {
-    return [false, "Opis memea musi byc dluzszy niz 15 znaków"];
+    return [false, "Mem's description must be longer than 15 characters"];
   }
   if (formData.img.length <= 5) {
-    return [false, "Link do mema musi byc dluzszy niz 5 znaków"];
+    return [false, "Link to Mems must be longer than 5 characters"];
   }
 
   return [true, ""];

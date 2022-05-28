@@ -1,17 +1,12 @@
-// React + Redux
 import React from "react";
 import { Routes, Route } from "react-router-dom";
 
-// Components
 import HotView from "./views/hot/Hot";
 import FavouritesView from "./views/favourites/Favourites";
 import MainView from "./views/main/Main";
 import RegularView from "./views/regular/Regular";
 import AppInfoView from "./views/app-info/app-info";
 
-// Material Ui
-
-// CSS
 import "./App.css";
 import AddMemFormView from "./views/addMemForm/addMemForm";
 import NotFound from "./views/notFound/NotFound";

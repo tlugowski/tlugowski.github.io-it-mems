@@ -2,8 +2,14 @@ import React, { useMemo } from "react";
 import { SelectEventHandler } from "rc-menu/lib/interface";
 import "antd/dist/antd.css";
 
-import { LogoWrapper } from "./Main.components";
-import { Layout, Menu } from "antd";
+import {
+  CustomContent,
+  CustomHeader,
+  LogoWrapper,
+  MenuWrapper,
+  SiderWrapper,
+} from "./Main.components";
+import { Layout } from "antd";
 import {
   LineChartOutlined,
   RiseOutlined,
@@ -12,9 +18,9 @@ import {
 } from "@ant-design/icons";
 import { ItemType } from "antd/lib/menu/hooks/useItems";
 import { Outlet, useNavigate } from "react-router-dom";
-import { MainSider } from "./Main.components";
-import styled from "styled-components";
 import useWindowDimensions from "../../hooks/WindowSize";
+
+const windowBrakingWidth = 768;
 
 const menuElements: ItemType[] = [
   {
@@ -39,13 +45,14 @@ const menuElements: ItemType[] = [
   },
 ];
 
-const { Header, Content } = Layout;
-
 const Main: React.FC = () => {
   const { width } = useWindowDimensions();
   const navigate = useNavigate();
 
-  const isCollapsed = useMemo<boolean>(() => width <= 768, [width]);
+  const isCollapsed = useMemo<boolean>(
+    () => width <= windowBrakingWidth,
+    [width]
+  );
 
   const onMenuChange: SelectEventHandler = (info) => {
     const routeName: string = info.key;
@@ -76,37 +83,5 @@ const Main: React.FC = () => {
     </Layout>
   );
 };
-
-const MenuWrapper = styled(Menu)`
-  width: 200px;
-
-  @media (max-width: 768px) {
-    & .ant-menu-item {
-      width: 78px;
-    }
-  }
-`;
-
-const CustomContent = styled(Content)`
-  width: calc(100vw - 200px);
-  margin-left: 200px;
-
-  @media (max-width: 768px) {
-    width: calc(100vw - 78px);
-    margin-left: 78px;
-  }
-`;
-
-const SiderWrapper = styled(MainSider)`
-  position: fixed;
-  margin-top: 64px;
-  height: calc(100vh - 64px);
-`;
-
-const CustomHeader = styled(Header)`
-  z-index: 1;
-  position: fixed;
-  width: 100%;
-`;
 
 export default Main;

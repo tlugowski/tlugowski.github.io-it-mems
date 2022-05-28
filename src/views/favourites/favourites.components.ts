@@ -11,9 +11,3 @@ export const ContainerFavourites = styled.div`
   background-attachment: fixed;
   background-size: cover;
 `;
-
-// @media screen and (min-device-width: 400px) {
-//     body {
-//       background-image: url('img_flowers.jpg');
-//     }
-//   }
