@@ -1,6 +1,6 @@
 # IT Mems ![HomePageButton](./src/images/HomePageButton.PNG)
 
-![presentation](./src/images/presentation.gif) \
+![presentation](./src/images/presentation.gif)
 
 The application is used to display and add IT-themed memes. Memes can be added using links. You can add paws up and down. We have a section Hot, Regular, Favorites. Each meme has a rate
 
@@ -105,17 +105,20 @@ The project is separated into a separate folder:
 - Hooks - containing hook for handling the change of screen width
 - images - images and gifs of the project
 - store - files connected with Redux
-- views - components related to displaying individual pages
+- views - components related to displaying individual pages.
+
   ![foldersStructure](./src/images/foldersStructure.PNG)
 
 Split folders by style:
-Components have their own twin file with 'components.ts' containing the component's styles and being exported at the same level as the file that uses it
+Components have their own twin file with 'components.ts' containing the component's styles and being exported at the same level as the file that uses it.
+
 ![stylesFolderStructure](./src/images/stylesFolderStructure.PNG)
 
 ## Database
 
 The database is located in the `mems.ts` file
-by a file in json format and controlled by types and interfaces
+by a file in json format and controlled by types and interfaces.
+
 ![jsonTypes](./src/images/jsonTypes.PNG)
 
 ## Technologies
